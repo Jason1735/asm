@@ -1,4 +1,4 @@
-# Makefile for linux as
+# Makefile for linux asm/c/c++
 
 BIN = ./bin
 SRC_C = ./src_c
@@ -29,18 +29,18 @@ LIBS = /usr/lib32/crt1.o /usr/lib32/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/32/cr
 all: $(BINARY)
 
 $(BINARY): $(OBJECT)
-	@$(LD) $(LDFLAGS) $+ -o $@ $(LIBS)
+	$(LD) $(LDFLAGS) $+ -o $@ $(LIBS)
 
 ${OBJ}/%.o: ${SRC_C}/%.c
-	@$(CC) $(CFLAGS) -o $@ -c $+
+	$(CC) $(CFLAGS) -o $@ -c $+
 
 ${OBJ}/%.o: ${SRC_CPP}/%.cpp
-	@$(CC) $(CFLAGS) -o $@ -c $+
+	$(CC) $(CFLAGS) -o $@ -c $+
 
 ${OBJ}/%.o: ${SRC_S}/%.s
-	@$(AS) $(ASFLAGS) -o $@ $+
+	$(AS) $(ASFLAGS) -o $@ $+
 
 clean:
-	@$(RM) $(OBJECT) $(BINARY) *~
+	$(RM) $(OBJECT) $(BINARY) *~
 .PHONY:
 	all clean

@@ -16,17 +16,17 @@ LD = ld
 
 ASFLAGS = -g -32
 LDFLAGS = -g -melf_i386 -dynamic-linker /lib/ld-linux.so.2
-LIBS = -lc
+LIBS = 
 
 all: $(BINARY)
 
 $(BINARY): $(OBJECT)
-	@$(LD) $(LDFLAGS) $+ -o $@ $(LIBS)
+	$(LD) $(LDFLAGS) $+ -o $@ $(LIBS)
 
 ${OBJ}/%.o: ${SRC_S}/%.s
-	@$(AS) $(ASFLAGS) -o $@ $+
+	$(AS) $(ASFLAGS) -o $@ $+
 
 clean:
-	@$(RM) $(OBJECT) $(BINARY) *~
+	$(RM) $(OBJECT) $(BINARY) *~
 .PHONY:
 	all clean
