@@ -1,6 +1,6 @@
 #cpuid.s Sample program to extract the processor Vendor ID
 .section .data
-	output: .ascii "The processor Vendor ID is 'xxxxxxxxxxxx;\n"
+	output: .ascii "The processor Vendor ID is 'xxxxxxxxxxxx'\n"
 	len = . - output
 
 .section .text
