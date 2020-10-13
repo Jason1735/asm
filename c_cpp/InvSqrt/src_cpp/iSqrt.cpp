@@ -1,3 +1,4 @@
+extern "C" float iSqrt(float);
 float iSqrt(float x)
 {
         float xhalf = 0.5f * x;
