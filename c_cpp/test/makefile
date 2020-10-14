@@ -22,7 +22,7 @@ AS = as
 LD = ld
 
 CFLAGS = -g -Wall -m32 -O2
-ASFLAGS = -g -32
+ASFLAGS = -gstabs -32
 LDFLAGS = -g -melf_i386 -dynamic-linker /lib/ld-linux.so.2
 LIBS = /usr/lib32/crt1.o /usr/lib32/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/32/crtbegin.o /usr/lib/gcc/x86_64-linux-gnu/7/32/crtend.o /usr/lib32/crtn.o -L/usr/lib/gcc/x86_64-linux-gnu/7/32 -lstdc++ -lc -lm
 
