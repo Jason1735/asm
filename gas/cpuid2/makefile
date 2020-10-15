@@ -14,8 +14,8 @@ OBJECT = $(patsubst %.s, ${OBJ}/%.o, $(notdir ${SOURCE_S}))
 AS = as
 LD = ld
 
-ASFLAGS = -g -32
-LDFLAGS = -g -melf_i386 -dynamic-linker /lib/ld-linux.so.2
+ASFLAGS = -gstabs -32
+LDFLAGS = -melf_i386 -dynamic-linker /lib/ld-linux.so.2
 LIBS = -lc 
 
 all: $(BINARY)
