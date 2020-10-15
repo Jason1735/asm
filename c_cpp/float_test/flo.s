@@ -5,8 +5,8 @@
 	outstring: .asciz "Result is %f\n"
 	
 .section .text
-.global main
-main:
+.global _start
+_start:
 	leal values, %ebx
 	flds 12(%ebx)
 	flds 8(%ebx)
@@ -18,12 +18,12 @@ main:
 	fdivp
 
 	fstl result
-
 	leal result, %ebx
 	pushl 4(%ebx)
 	pushl (%ebx)
 	pushl $outstring
 	call printf
+	addl $12, %esp
 end:
 	pushl $0
 	call exit
