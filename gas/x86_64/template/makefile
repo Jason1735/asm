@@ -1,0 +1,32 @@
+# Makefile for linux asm/c/c++
+
+BIN = ./bin
+SRC_S = ./src_s
+OBJ = ./obj
+
+TARGET = main
+BINARY = ${BIN}/${TARGET}
+
+SOURCE_S = $(wildcard ${SRC_S}/*.s)
+
+OBJECT = $(patsubst %.s, ${OBJ}/%.o, $(notdir ${SOURCE_S}))
+
+AS = as
+LD = ld
+
+ASFLAGS = -gstabs
+LDFLAGS = -melf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2
+LIBS = -lc 
+
+all: $(BINARY)
+
+$(BINARY): $(OBJECT)
+	$(LD) $(LDFLAGS) $+ -o $@ $(LIBS)
+
+${OBJ}/%.o: ${SRC_S}/%.s
+	$(AS) $(ASFLAGS) -o $@ $+
+
+clean:
+	$(RM) $(OBJECT) $(BINARY) *~
+.PHONY:
+	all clean
