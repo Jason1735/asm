@@ -11,8 +11,10 @@ _start:
 	nop
 	finit
 	flds value1
-	fsub value2
+	flds value2
+	fsubp
 
+	fstps value1
 	fstps value2
 	movl $0, %ebx
 	movl $1, %eax
