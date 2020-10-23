@@ -9,7 +9,7 @@ int main(int argc, char *argv[])
     float res = 0.0f;
     scanf("%x", &num1);
     res = *(float*)&num1;
-    
-    cout << res << endl;
+    printf("%.15f\n", res);
+    //cout << res << endl;
     return 0;
 }
